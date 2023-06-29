@@ -1,0 +1,16 @@
+.weekly-weather {
+    /*border: 1px solid blueviolet;*/
+    padding: 1%;
+    background-color: #407c87;
+    display: flex;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2vw;
+ 
+  }
+  
+  
+  

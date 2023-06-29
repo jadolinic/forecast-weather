@@ -1,0 +1,27 @@
+.daily {
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #a5dbdd;
+    background-color: #a5dbdd;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    -webkit-box-shadow: 11px 9px 9px -8px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 11px 9px 9px -8px rgba(0, 0, 0, 0.52);
+    box-shadow: 11px 9px 9px -8px rgba(0, 0, 0, 0.52);
+  }
+  
+  .daily:hover{
+    transform: scale(1.05);
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
