@@ -51,7 +51,7 @@ const Hourly = ({ date, hourlySeriesData, dayIndex, formatDate }) => {
         text: "Time (hours)",
       },
       categories: [
-        `${formatDate(date, "DD.MM.")}`,
+        "00:00",
         "01:00",
         "02:00",
         "03:00",
