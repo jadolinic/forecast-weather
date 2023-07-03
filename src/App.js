@@ -39,13 +39,13 @@ const App = () => {
     let start = 0;
     let end = 24;
 
-    for (let i = 0; i <= 17; i++) {
+    for (let i = 0; i <= 16; i++) {
       const fullTimesOneDay = monthly.hourly.time.slice(start, end);
       
       const tempsOneDay = monthly.hourly.temperature_2m.slice(start, end);
 
       const tIndexDay = fullTimesOneDay.map((time, index) => {
-        const name = formatDate(new Date(time), "DD.MM. HH:mm"); //name: "Friday June 23, 00:00" ==> TO-DO: ima samo datum
+        const name = formatDate(new Date(time), "DD.MM. HH:mm"); 
         const y = tempsOneDay[index];
         return { name, y };
       });
@@ -125,10 +125,13 @@ const App = () => {
     let hourPreFormat = date.getHours();
     if (hourPreFormat < 10) hourPreFormat = "0" + hourPreFormat;
 
+    let dayPreFormat = date.getDate();
+    if (dayPreFormat < 10) dayPreFormat = "0" + dayPreFormat;
+
     const formattedDate = format
       .replace("YYYY", date.getFullYear())
       .replace("MM", monthPreFormat)
-      .replace("DD", date.getDate())
+      .replace("DD", dayPreFormat)
       .replace("HH", hourPreFormat)
       .replace("mm", date.getMinutes() + "0");
     return formattedDate;
