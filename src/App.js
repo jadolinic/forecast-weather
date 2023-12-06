@@ -25,7 +25,7 @@ const App = () => {
 
   const updateHourlyComponent = (index) => {
     if (dayIndex === index) {
-      toggleRefreshGraph(); 
+      toggleRefreshGraph();
     } else {
       setDayIndex(dayIndex);
     }
@@ -41,11 +41,11 @@ const App = () => {
 
     for (let i = 0; i <= 16; i++) {
       const fullTimesOneDay = monthly.hourly.time.slice(start, end);
-      
+
       const tempsOneDay = monthly.hourly.temperature_2m.slice(start, end);
 
       const tIndexDay = fullTimesOneDay.map((time, index) => {
-        const name = formatDate(new Date(time), "DD.MM. HH:mm"); 
+        const name = formatDate(new Date(time), "DD.MM. HH:mm");
         const y = tempsOneDay[index];
         return { name, y };
       });
@@ -53,8 +53,6 @@ const App = () => {
       end += 24;
 
       hourlyDataSet.data.push(tIndexDay);
-
-      
     }
   };
 
@@ -91,10 +89,9 @@ const App = () => {
 
         const today = new Date();
         const todayF = formatDate(today, "YYYY-MM-DD");
-        const todayF_30 = formatDate(
-          new Date(today.setDate(today.getDate() + 16)),
-          "YYYY-MM-DD"
-        );
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + 15);
+        const todayF_30 = formatDate(futureDate, "YYYY-MM-DD");
         console.error(
           "Max Weather forecast for the https://open-meteo.com/v1/forecast API is 16 days in the future. Per default, only 7 days are returned. Up to 16 days of forecast are possible"
         );
@@ -179,7 +176,7 @@ const App = () => {
                 handleHourlyForDay={handleDaySelection}
               />
             ) : (
-              <Monthly 
+              <Monthly
                 monthly={monthly}
                 hourlyDataSet={hourlyDataSet}
                 formatDate={formatDate}
@@ -187,7 +184,8 @@ const App = () => {
                 //location={location}
                 updateHourlyComponent={updateHourlyComponent}
                 toggleRefreshGraph={toggleRefreshGraph}
-                handleHourlyForDay={handleDaySelection} />
+                handleHourlyForDay={handleDaySelection}
+              />
             )}
           </div>
         </>

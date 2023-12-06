@@ -10,6 +10,7 @@ const Hourly = ({ date, hourlySeriesData, dayIndex, formatDate }) => {
     setData(hourlySeriesData[dayIndex]);
   }, [hourlySeriesData, dayIndex]);
 
+ 
   let seriesArray = [
     {
       name: "Temperature °C ",
@@ -23,7 +24,7 @@ const Hourly = ({ date, hourlySeriesData, dayIndex, formatDate }) => {
     value: new Date().getHours() + "." + new Date().getMinutes(), 
     zIndex: 5, 
   };
-  let now = date;
+ /*  let now = new Date();
   let endOfDay = new Date(
     now.getFullYear(),
     now.getMonth(),
@@ -35,7 +36,7 @@ const Hourly = ({ date, hourlySeriesData, dayIndex, formatDate }) => {
 
   if (now >= endOfDay) {
     plotLineObject = {};
-  }
+  } */
 
   let options = {
     title: {
