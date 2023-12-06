@@ -12,10 +12,9 @@ const Monthly = ({
   dayIndex,
   toggleRefreshGraph,
 }) => {
-
   const handleDaySelect = (index) => {
     if (index === dayIndex) {
-      toggleRefreshGraph(); 
+      toggleRefreshGraph();
     } else {
       handleHourlyForDay(index);
     }
@@ -23,7 +22,7 @@ const Monthly = ({
 
   return (
     <>
-      <h1>17 Day Forecast</h1>
+      <h1>16 Day Forecast</h1>
 
       <div>
         <div className="weekly-weather">
@@ -32,7 +31,6 @@ const Monthly = ({
               const maxTemperature = monthly.daily.temperature_2m_max[index];
               const minTemperature = monthly.daily.temperature_2m_min[index];
               const time = monthly.daily.time[index];
-
 
               if (
                 maxTemperature !== undefined &&
@@ -58,15 +56,15 @@ const Monthly = ({
         </div>
       </div>
       <h1>Hourly Forecast</h1>
-          <div className="hourly-weather">
-            <Hourly
-              weatherData={monthly}
-              hourlySeriesData={hourlyDataSet.data}
-              date={hourlyDataSet.date}
-              formatDate={formatDate}
-              dayIndex={dayIndex}
-            />
-          </div>
+      <div className="hourly-weather">
+        <Hourly
+          weatherData={monthly}
+          hourlySeriesData={hourlyDataSet.data}
+          date={hourlyDataSet.date}
+          formatDate={formatDate}
+          dayIndex={dayIndex}
+        />
+      </div>
     </>
   );
 };
